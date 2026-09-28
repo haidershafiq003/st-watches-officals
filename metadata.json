@@ -1,0 +1,6 @@
+{
+  "name": "ST Watches - Luxury Pakistani Timepieces",
+  "description": "Modern, premium e-commerce store for ST Watches featuring handcrafted luxury timepieces with direct WhatsApp checkout and Cash on Delivery across Pakistan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

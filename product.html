@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timepiece Details | ST Watches Pakistan</title>
+  <meta name="description" content="View horological specifications, 316L steel architecture, and order with Cash on Delivery across Pakistan." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .pdp-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .pdp-gallery-card {
+      background: #171717;
+      border: 1px solid var(--color-gray-200);
+      border-radius: 2px;
+      overflow: hidden;
+      position: sticky;
+      top: 100px;
+    }
+    .pdp-main-image-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      position: relative;
+      background: #121212;
+      overflow: hidden;
+    }
+    .pdp-main-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .pdp-gallery-thumbs {
+      display: flex;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: #0B0B0B;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      overflow-x: auto;
+    }
+    .pdp-thumb-btn {
+      width: 72px;
+      height: 72px;
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      flex-shrink: 0;
+      opacity: 0.6;
+      transition: var(--transition-smooth);
+    }
+    .pdp-thumb-btn.active,
+    .pdp-thumb-btn:hover {
+      opacity: 1;
+      border-color: var(--color-gold);
+    }
+    .pdp-thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pdp-price-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin: 1.25rem 0;
+      font-variant-numeric: tabular-nums;
+    }
+    .pdp-current-price {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--color-black);
+    }
+    .pdp-old-price {
+      font-size: 1.2rem;
+      color: var(--color-gray-400);
+      text-decoration: line-through;
+    }
+    .pdp-savings-badge {
+      background: rgba(185, 28, 28, 0.1);
+      color: #B91C1C;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+    }
+    .qty-stepper {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--color-gray-200);
+      border-radius: 2px;
+      background: var(--color-white);
+    }
+    .qty-stepper button {
+      padding: 0.75rem 1.15rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-black);
+      transition: background 0.2s;
+    }
+    .qty-stepper button:hover {
+      background: var(--color-offwhite);
+    }
+    .qty-stepper span {
+      padding: 0 1rem;
+      font-weight: 600;
+      min-width: 32px;
+      text-align: center;
+    }
+    .pdp-specs-box {
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: 2px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    .pdp-trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-gray-200);
+    }
+    .pdp-trust-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--color-gray-800);
+    }
+    .pdp-trust-pill svg {
+      color: var(--color-gold);
+      flex-shrink: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar">
+    <span>Complimentary Express Delivery on orders over <strong>PKR 20,000</strong> · Cash on Delivery (COD) Across Pakistan</span>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="site-logo">ST <span>WATCHES</span></a>
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="categories.html" class="nav-link">Categories</a>
+        <a href="new-arrivals.html" class="nav-link">New Arrivals</a>
+        <a href="sale.html" class="nav-link nav-sale-badge">Sale</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="action-btn" onclick="openSearchModal()" aria-label="Search watches">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <a href="cart.html" class="action-btn" aria-label="Shopping Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-count-badge" style="display: none;">0</span>
+        </a>
+        <button class="action-btn mobile-menu-btn" aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <span class="site-logo" style="font-size: 1.2rem;">ST <span>WATCHES</span></span>
+      <button class="mobile-menu-close" style="color: #FFFFFF; padding: 0.5rem;" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="mobile-links">
+      <a href="index.html" class="mobile-link">Home <span>→</span></a>
+      <a href="shop.html" class="mobile-link">Shop Collection <span>→</span></a>
+      <a href="categories.html" class="mobile-link">Categories <span>→</span></a>
+      <a href="new-arrivals.html" class="mobile-link">New Arrivals <span>→</span></a>
+      <a href="sale.html" class="mobile-link" style="color: #E2C45E;">Sale Offers <span>→</span></a>
+      <a href="about.html" class="mobile-link">About Brand <span>→</span></a>
+      <a href="contact.html" class="mobile-link">Contact & Showroom <span>→</span></a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Breadcrumb Bar -->
+    <div style="background: var(--color-black); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 1rem 0;">
+      <div class="container">
+        <nav class="breadcrumb" style="justify-content: flex-start; margin: 0; font-size: 0.78rem;">
+          <a href="index.html">Home</a>
+          <span class="separator">/</span>
+          <a href="shop.html">Shop</a>
+          <span class="separator">/</span>
+          <a id="pdp-breadcrumb-cat" href="shop.html">Watches</a>
+          <span class="separator">/</span>
+          <span id="pdp-breadcrumb-name" class="current">Watch</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main PDP Module -->
+    <section class="section" style="padding-top: 3rem;">
+      <div class="container">
+        <div class="pdp-split">
+          <!-- Gallery Column -->
+          <div class="pdp-gallery-card">
+            <div class="pdp-main-image-wrap">
+              <span id="pdp-badge" class="card-badge" style="display: none;">SALE</span>
+              <img id="pdp-main-img" src="" alt="Luxury Watch" />
+            </div>
+            <div id="pdp-gallery-thumbs" class="pdp-gallery-thumbs">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Purchase Column -->
+          <div>
+            <span id="pdp-category" class="section-label">Luxury Watches</span>
+            <h1 id="pdp-title" class="section-title" style="font-size: 2.35rem; margin-bottom: 0.5rem;">ST Timepiece</h1>
+
+            <div id="pdp-rating" style="margin-bottom: 1rem;">
+              <!-- Rating stars -->
+            </div>
+
+            <div class="pdp-price-wrap">
+              <span id="pdp-price" class="pdp-current-price">PKR 0</span>
+              <span id="pdp-old-price" class="pdp-old-price" style="display: none;">PKR 0</span>
+              <span id="pdp-savings" class="pdp-savings-badge" style="display: none;">Save PKR 0</span>
+            </div>
+
+            <p id="pdp-short-desc" style="color: var(--color-gray-600); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Product summary description.
+            </p>
+
+            <div id="pdp-stock-status" style="margin-bottom: 1.25rem;">
+              <!-- In Stock -->
+            </div>
+
+            <!-- Color Variant Selector -->
+            <div id="pdp-color-selector" class="pdp-color-wrap" style="display: none;">
+              <div class="pdp-color-header">
+                <span class="pdp-color-label">Color / Finish Edition:</span>
+                <span id="pdp-selected-color-name" class="pdp-selected-color-name">Classic Edition</span>
+              </div>
+              <div id="pdp-color-swatches" class="pdp-color-swatches">
+                <!-- Color swatches dynamically injected -->
+              </div>
+            </div>
+
+            <!-- Quantity & Actions -->
+            <div class="pdp-actions-wrap">
+              <div class="qty-stepper">
+                <button onclick="decrementPdpQty()" aria-label="Decrease quantity">-</button>
+                <span id="pdp-qty-display">1</span>
+                <button onclick="incrementPdpQty()" aria-label="Increase quantity">+</button>
+              </div>
+
+              <button class="btn btn-gold pdp-add-cart-btn" onclick="addCurrentProductToCart()">
+                Add to Cart
+              </button>
+
+              <button class="btn btn-dark pdp-buy-now-btn" onclick="buyCurrentProductNow()">
+                Buy Now
+              </button>
+            </div>
+
+            <!-- WhatsApp Direct Buy Button -->
+            <button id="pdp-whatsapp-btn" class="btn btn-whatsapp btn-block" style="margin-bottom: 2rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.8 14.16c-.24.68-1.4 1.25-1.92 1.33-.5.08-1.15.11-3.72-.94-3.28-1.34-5.4-4.66-5.56-4.88-.16-.22-1.33-1.77-1.33-3.38 0-1.61.84-2.4 1.14-2.73.3-.33.65-.41.87-.41.22 0 .43 0 .62.01.2.01.47-.08.73.55.27.65.92 2.24 1 2.4.08.16.14.36.03.57-.11.22-.16.36-.32.55-.16.19-.34.42-.49.57-.16.16-.33.34-.14.67.19.33.84 1.39 1.8 2.25 1.24 1.1 2.28 1.45 2.61 1.61.33.16.52.14.71-.08.2-.22.84-.98 1.06-1.32.22-.34.45-.28.75-.17.3.11 1.91.9 2.24 1.06.33.16.55.24.63.38.08.14.08.82-.16 1.5z"/></svg>
+              Inquire / Order on WhatsApp
+            </button>
+
+            <!-- Horological Specifications Card -->
+            <div class="pdp-specs-box">
+              <h3 style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--color-black); margin-bottom: 1rem;">
+                Horological Specifications
+              </h3>
+              <ul id="pdp-features-list" style="list-style: none;">
+                <!-- Features list items -->
+              </ul>
+
+              <div class="pdp-trust-grid">
+                <div class="pdp-trust-pill">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  <span>1-Year National Warranty</span>
+                </div>
+                <div class="pdp-trust-pill">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                  <span>Cash on Delivery (COD)</span>
+                </div>
+                <div class="pdp-trust-pill">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                  <span>7-Day Return / Exchange</span>
+                </div>
+                <div class="pdp-trust-pill">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <span>100% Original Japanese Calibre</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Full Architectural Description -->
+            <div>
+              <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--color-black); margin-bottom: 0.75rem;">
+                Craftsmanship & Architecture
+              </h3>
+              <p id="pdp-full-desc" style="color: var(--color-gray-600); font-size: 0.95rem; line-height: 1.75;">
+                Full description content.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="section" style="border-top: 1px solid var(--color-gray-200); background: var(--color-white);">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-label">Complementary Silhouettes</span>
+            <h2 class="section-title">You May Also Admire</h2>
+          </div>
+          <a href="shop.html" class="btn btn-outline-dark">Browse All</a>
+        </div>
+        <div id="pdp-related-grid" class="product-grid">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Footer Newsletter Bar -->
+      <div class="footer-newsletter-bar">
+        <div class="footer-newsletter-info">
+          <span class="footer-newsletter-tag">VIP Collector's Circle</span>
+          <h3 class="footer-newsletter-title">Subscribe to Horological Journal</h3>
+          <p class="footer-newsletter-desc">
+            Receive private preview access to limited batch releases and exclusive private sale invitations in Pakistan.
+          </p>
+        </div>
+        <form class="newsletter-form footer-newsletter-form" action="https://formsubmit.co/haidershafiq03@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="📬 New VIP Watch Collector Subscriber - ST Watches Pakistan" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_autoresponse" value="Thank you for subscribing to ST Watches Pakistan. You have been added to our VIP Collector's Circle and will receive priority notices for new arrivals and private sales." />
+          <input type="hidden" name="Subscription" value="VIP Collector Circle" />
+          <input type="hidden" name="Store" value="ST Watches Pakistan" />
+          <div class="footer-newsletter-inputs">
+            <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address..." required autocomplete="email" />
+            <button type="submit" class="btn btn-gold footer-subscribe-btn">
+              <span>Subscribe</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="site-logo">ST <span>WATCHES</span></a>
+          <p>
+            Pakistan's bespoke horological institution. Creating modern, precision-engineered luxury timepieces that make a lasting statement.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop All Timepieces</a></li>
+            <li><a href="categories.html">Watch Categories</a></li>
+            <li><a href="new-arrivals.html">New Arrivals</a></li>
+            <li><a href="sale.html">Special Offers & Sale</a></li>
+            <li><a href="about.html">Brand Philosophy</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html?category=Men%27s%20Watches">Men's Watches</a></li>
+            <li><a href="shop.html?category=Women%27s%20Watches">Women's Watches</a></li>
+            <li><a href="shop.html?category=Luxury%20Watches">Luxury Watches</a></li>
+            <li><a href="shop.html?category=Classic%20Watches">Classic Watches</a></li>
+            <li><a href="shop.html?category=Casual%20Watches">Casual & Sports</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Store Inquiries</h4>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+92 300 1234567</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>orders@stwatches.pk</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 ST WATCHES PAKISTAN. ALL RIGHTS RESERVED. · <a href="privacy-policy.html" style="color: #A0A5B5; text-decoration: underline;">Privacy Policy</a></div>
+        <div class="footer-payments">
+          <span class="cod-badge">CASH ON DELIVERY (COD)</span>
+          <span class="cod-badge">WHATSAPP DIRECT</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/923001234567" target="_blank" rel="noopener" class="whatsapp-floating" aria-label="Direct WhatsApp Order Support">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.8 14.16c-.24.68-1.4 1.25-1.92 1.33-.5.08-1.15.11-3.72-.94-3.28-1.34-5.4-4.66-5.56-4.88-.16-.22-1.33-1.77-1.33-3.38 0-1.61.84-2.4 1.14-2.73.3-.33.65-.41.87-.41.22 0 .43 0 .62.01.2.01.47-.08.73.55.27.65.92 2.24 1 2.4.08.16.14.36.03.57-.11.22-.16.36-.32.55-.16.19-.34.42-.49.57-.16.16-.33.34-.14.67.19.33.84 1.39 1.8 2.25 1.24 1.1 2.28 1.45 2.61 1.61.33.16.52.14.71-.08.2-.22.84-.98 1.06-1.32.22-.34.45-.28.75-.17.3.11 1.91.9 2.24 1.06.33.16.55.24.63.38.08.14.08.82-.16 1.5z"/></svg>
+  </a>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>

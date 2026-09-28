@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | ST Watches Pakistan</title>
+  <meta name="description" content="Complete your luxury watch purchase with WhatsApp or Cash on Delivery across Pakistan. Fast nationwide dispatch with TCS." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Checkout Page Styles with Comprehensive Mobile Optimization */
+    .checkout-section {
+      padding: 3rem 0 5rem;
+    }
+    .checkout-grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 2.5rem;
+      align-items: start;
+      width: 100%;
+      box-sizing: border-box;
+      min-width: 0;
+    }
+    .checkout-form-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: 6px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      width: 100%;
+      box-sizing: border-box;
+      min-width: 0;
+      transition: var(--transition-smooth);
+    }
+    .checkout-summary-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: 6px;
+      padding: 2rem;
+      position: sticky;
+      top: 96px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      width: 100%;
+      box-sizing: border-box;
+      min-width: 0;
+    }
+    .checkout-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      margin-bottom: 1.25rem;
+      color: var(--color-black);
+      line-height: 1.25;
+    }
+    .checkout-summary-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--color-black);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--color-gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-black);
+      margin-bottom: 0.45rem;
+    }
+    .form-help-text {
+      font-size: 0.74rem;
+      color: var(--color-gray-600);
+      margin-top: 0.35rem;
+      display: block;
+      line-height: 1.4;
+    }
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      background: #FAFAFA;
+      border: 1px solid var(--color-gray-200);
+      padding: 0.85rem 1rem;
+      border-radius: 4px;
+      font-size: 16px;
+      color: var(--color-black);
+      transition: all 0.2s ease;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-input, .form-select {
+      min-height: 48px;
+    }
+    .form-textarea {
+      min-height: 90px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230B0B0B' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 16px;
+      padding-right: 2.75rem;
+      cursor: pointer;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      background: #FFFFFF;
+      border-color: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
+      outline: none;
+    }
+    .cod-notice {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      padding: 0.85rem 1rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      color: #166534;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      line-height: 1.45;
+      box-sizing: border-box;
+    }
+    .cod-notice svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .checkout-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--color-gray-200);
+      font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+    .checkout-item-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+    .checkout-item-thumb {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 4px;
+      background: #171717;
+      flex-shrink: 0;
+      border: 1px solid var(--color-gray-200);
+    }
+    .checkout-item-details {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+    .checkout-item-name {
+      font-weight: 600;
+      color: var(--color-black);
+      line-height: 1.3;
+      word-break: break-word;
+      font-size: 0.88rem;
+    }
+    .checkout-item-qty {
+      font-size: 0.75rem;
+      color: var(--color-gray-600);
+      margin-top: 0.2rem;
+    }
+    .checkout-item-total {
+      font-weight: 600;
+      color: var(--color-black);
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+      text-align: right;
+      white-space: nowrap;
+      font-size: 0.88rem;
+    }
+    .summary-calc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--color-gray-600);
+    }
+    .summary-calc-row strong,
+    .summary-calc-row span:last-child {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .summary-calc-row.total {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-black);
+      border-top: 1px solid var(--color-gray-200);
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+    .checkout-actions-container {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .btn-checkout-whatsapp {
+      padding: 1.05rem 1.25rem;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      line-height: 1.3;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 4px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      min-height: 52px;
+      transition: all 0.2s ease;
+    }
+    .btn-checkout-whatsapp svg {
+      flex-shrink: 0;
+    }
+    .btn-checkout-cod {
+      padding: 0.95rem 1.25rem;
+      font-size: 0.88rem;
+      line-height: 1.3;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 4px;
+      font-weight: 600;
+      min-height: 48px;
+      transition: all 0.2s ease;
+    }
+    .checkout-trust-strip {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-gray-200);
+    }
+    .checkout-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--color-gray-600);
+      line-height: 1.35;
+    }
+    .checkout-trust-item svg {
+      color: var(--color-gold);
+      flex-shrink: 0;
+    }
+
+    /* Mobile Order Summary Collapsible (Shown on mobile devices) */
+    .mobile-summary-toggle-bar {
+      display: none;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--color-gray-200);
+      border-radius: 6px;
+      background: #FFFFFF;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+    .mobile-summary-toggle-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1rem;
+      background: #FAFAFA;
+      border: none;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: var(--color-black);
+      transition: background 0.2s ease;
+      text-align: left;
+    }
+    .mobile-summary-toggle-btn:hover {
+      background: #F3F1EC;
+    }
+    .toggle-btn-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: var(--color-black);
+    }
+    .toggle-btn-left svg:first-child {
+      color: var(--color-gold);
+      flex-shrink: 0;
+    }
+    .toggle-chevron {
+      transition: transform 0.25s ease;
+      color: var(--color-gray-600);
+    }
+    .mobile-summary-toggle-btn.expanded .toggle-chevron {
+      transform: rotate(180deg);
+    }
+    .toggle-total {
+      font-weight: 700;
+      color: var(--color-gold-dark);
+      font-size: 0.95rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .mobile-summary-collapsible {
+      display: none;
+      padding: 1rem;
+      border-top: 1px solid var(--color-gray-200);
+      background: #FFFFFF;
+    }
+    .mobile-summary-collapsible.open {
+      display: block;
+      animation: fadeIn 0.2s ease;
+    }
+    .mobile-items-list {
+      max-height: 220px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+      padding-right: 0.25rem;
+    }
+
+    /* Advance Cash & Payment Method Styles */
+    .payment-method-section {
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-gray-200);
+    }
+    .payment-section-header {
+      margin-bottom: 1rem;
+    }
+    .payment-method-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--color-black);
+      margin-top: 0.25rem;
+    }
+    .payment-options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .payment-option-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 1.1rem 1.2rem;
+      border: 1.5px solid var(--color-gray-200);
+      border-radius: 6px;
+      background: #FFFFFF;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .payment-option-card:hover {
+      border-color: var(--color-gold);
+    }
+    .payment-option-card.active {
+      border-color: var(--color-gold);
+      background: #FFFCF2;
+      box-shadow: 0 4px 14px rgba(201, 162, 39, 0.12);
+    }
+    .payment-option-card input[type="radio"] {
+      margin-top: 0.25rem;
+      width: 18px;
+      height: 18px;
+      accent-color: #C9A227;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .payment-option-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .payment-option-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.35rem;
+    }
+    .payment-option-name {
+      font-size: 0.95rem;
+      color: var(--color-black);
+      font-weight: 700;
+    }
+    .discount-pill {
+      background: linear-gradient(135deg, #15803D 0%, #16A34A 100%);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.22rem 0.65rem;
+      border-radius: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(22, 163, 74, 0.25);
+      animation: discountPulse 2.5s infinite;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    @keyframes discountPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+    .standard-pill {
+      background: #F3F4F6;
+      color: #4B5563;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 10px;
+    }
+    .payment-option-desc {
+      font-size: 0.82rem;
+      color: var(--color-gray-600);
+      line-height: 1.45;
+      margin: 0;
+    }
+    .payment-badges-row {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 0.65rem;
+      flex-wrap: wrap;
+    }
+    .pay-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .pay-badge.jazzcash-badge {
+      background: #E30613;
+      color: #FFFFFF;
+    }
+    .pay-badge.easypaisa-badge {
+      background: #00A651;
+      color: #FFFFFF;
+    }
+    .pay-badge.savings-badge {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FDE68A;
+    }
+
+    /* Advance Payment Interactive Panel */
+    .advance-payment-panel {
+      margin-top: 1.25rem;
+      padding: 1.25rem;
+      background: #FFFFFF;
+      border: 1.5px solid #EADBB3;
+      border-radius: 8px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+      animation: fadeIn 0.25s ease;
+    }
+    .advance-discount-banner {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      color: #065F46;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 1.25rem;
+    }
+    .advance-discount-banner svg {
+      color: #059669;
+      flex-shrink: 0;
+    }
+    .advance-wallet-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .wallet-tab-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 6px;
+      background: #FAFAFA;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #374151;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .wallet-tab-btn:hover {
+      background: #F3F4F6;
+    }
+    .wallet-tab-btn.active.jazzcash-active {
+      border-color: #E30613;
+      background: #FFF5F5;
+      color: #B91C1C;
+      box-shadow: 0 2px 8px rgba(227, 6, 19, 0.15);
+    }
+    .wallet-tab-btn.active.easypaisa-active {
+      border-color: #00A651;
+      background: #F0FDF4;
+      color: #15803D;
+      box-shadow: 0 2px 8px rgba(0, 166, 81, 0.15);
+    }
+    .wallet-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .wallet-dot.jc-dot { background: #E30613; }
+    .wallet-dot.ep-dot { background: #00A651; }
+
+    .wallet-info-box {
+      background: #F9FAFB;
+      border: 1px solid #E5E7EB;
+      border-radius: 6px;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .wallet-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+    @media (max-width: 480px) {
+      .wallet-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .wallet-info-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .wallet-info-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #6B7280;
+      margin-bottom: 0.2rem;
+    }
+    .wallet-info-value {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+      word-break: break-word;
+    }
+    .wallet-info-value.amount {
+      color: #15803D;
+      font-size: 1.1rem;
+    }
+
+    .wallet-action-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 480px) {
+      .wallet-action-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+    .btn-wallet-launch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      border: none;
+      cursor: pointer;
+      color: #FFFFFF;
+      transition: all 0.2s ease;
+      min-height: 48px;
+      text-decoration: none;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .btn-wallet-launch.jc-theme {
+      background: linear-gradient(135deg, #E30613 0%, #B91C1C 100%);
+      box-shadow: 0 3px 10px rgba(227, 6, 19, 0.28);
+    }
+    .btn-wallet-launch.jc-theme:hover {
+      background: linear-gradient(135deg, #C20510 0%, #991B1B 100%);
+      transform: translateY(-1px);
+    }
+    .btn-wallet-launch.ep-theme {
+      background: linear-gradient(135deg, #00A651 0%, #15803D 100%);
+      box-shadow: 0 3px 10px rgba(0, 166, 81, 0.28);
+    }
+    .btn-wallet-launch.ep-theme:hover {
+      background: linear-gradient(135deg, #008F45 0%, #166534 100%);
+      transform: translateY(-1px);
+    }
+    .btn-wallet-copy {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      background: #FFFFFF;
+      border: 1.5px solid #D1D5DB;
+      color: #1F2937;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      min-height: 48px;
+      box-sizing: border-box;
+    }
+    .btn-wallet-copy:hover {
+      background: #F9FAFB;
+      border-color: #9CA3AF;
+    }
+    .wallet-instructions-text {
+      font-size: 0.78rem;
+      color: #6B7280;
+      line-height: 1.45;
+      background: #F3F4F6;
+      padding: 0.65rem 0.85rem;
+      border-radius: 4px;
+      margin-top: 0.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .wallet-instructions-text svg {
+      color: #4B5563;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .summary-calc-row.discount-row {
+      color: #15803D;
+      font-weight: 600;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar">
+    <span>Complimentary Express Delivery on orders over <strong>PKR 20,000</strong> · Cash on Delivery (COD) Across Pakistan</span>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="site-logo">ST <span>WATCHES</span></a>
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="categories.html" class="nav-link">Categories</a>
+        <a href="new-arrivals.html" class="nav-link">New Arrivals</a>
+        <a href="sale.html" class="nav-link nav-sale-badge">Sale</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="action-btn" onclick="openSearchModal()" aria-label="Search watches">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <a href="cart.html" class="action-btn" aria-label="Shopping Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-count-badge" style="display: none;">0</span>
+        </a>
+        <button class="action-btn mobile-menu-btn" aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <span class="site-logo" style="font-size: 1.2rem;">ST <span>WATCHES</span></span>
+      <button class="mobile-menu-close" style="color: #FFFFFF; padding: 0.5rem;" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="mobile-links">
+      <a href="index.html" class="mobile-link">Home <span>→</span></a>
+      <a href="shop.html" class="mobile-link">Shop Collection <span>→</span></a>
+      <a href="categories.html" class="mobile-link">Categories <span>→</span></a>
+      <a href="new-arrivals.html" class="mobile-link">New Arrivals <span>→</span></a>
+      <a href="sale.html" class="mobile-link" style="color: #E2C45E;">Sale Offers <span>→</span></a>
+      <a href="about.html" class="mobile-link">About Brand <span>→</span></a>
+      <a href="contact.html" class="mobile-link">Contact & Showroom <span>→</span></a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="page-banner">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="separator">/</span>
+          <a href="cart.html">Shopping Bag</a>
+          <span class="separator">/</span>
+          <span class="current">Checkout</span>
+        </nav>
+        <h1 class="page-banner-title">Express Delivery Checkout</h1>
+        <p class="page-banner-subtitle">
+          Dispatched securely via TCS / Call Courier across Pakistan with Cash on Delivery.
+        </p>
+      </div>
+    </section>
+
+    <section class="section checkout-section">
+      <div id="checkout-page-container" class="container">
+
+        <!-- Mobile-Only Order Summary Accordion Bar (Visible on mobile/tablet <= 960px) -->
+        <div class="mobile-summary-toggle-bar" id="mobile-summary-toggle-bar">
+          <button type="button" class="mobile-summary-toggle-btn" id="mobile-summary-toggle-btn" aria-expanded="false" aria-controls="mobile-summary-collapsible">
+            <div class="toggle-btn-left">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+              <span id="mobile-toggle-text">Show order summary</span>
+              <svg class="toggle-chevron" id="mobile-toggle-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+            <div class="toggle-total" id="mobile-toggle-total">PKR 0</div>
+          </button>
+          <div class="mobile-summary-collapsible" id="mobile-summary-collapsible">
+            <div id="mobile-checkout-items-list" class="mobile-items-list">
+              <!-- Rendered via checkout.js -->
+            </div>
+            <div class="summary-calc-row">
+              <span>Subtotal</span>
+              <strong id="mobile-checkout-subtotal" style="color: var(--color-black); font-variant-numeric: tabular-nums;">PKR 0</strong>
+            </div>
+            <div class="summary-calc-row discount-row" id="mobile-checkout-discount-row" style="display: none; color: #15803D;">
+              <span>Advance Discount (10% OFF)</span>
+              <strong id="mobile-checkout-discount" style="color: #15803D; font-variant-numeric: tabular-nums;">- PKR 0</strong>
+            </div>
+            <div class="summary-calc-row">
+              <span>Delivery (TCS / Call Courier)</span>
+              <strong id="mobile-checkout-delivery" style="color: var(--color-black); font-variant-numeric: tabular-nums;">PKR 250</strong>
+            </div>
+            <div class="summary-calc-row total" style="margin-bottom: 0;">
+              <span>Grand Total</span>
+              <span id="mobile-checkout-total" style="color: var(--color-gold-dark); font-variant-numeric: tabular-nums;">PKR 0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-grid-layout">
+          <!-- Shipping Information Column -->
+          <div class="checkout-form-card">
+            <span class="section-label">Recipient & Dispatch Information</span>
+            <h2 class="checkout-card-title">
+              Delivery Details
+            </h2>
+
+            <div class="cod-notice">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Cash on Delivery (COD) Active:</strong> Pay comfortably to the courier rider upon delivery at your doorstep.</span>
+            </div>
+
+            <form id="checkout-form">
+              <!-- Full Name -->
+              <div class="form-group">
+                <label class="form-label" for="cust-name">Full Name *</label>
+                <input type="text" id="cust-name" class="form-input" placeholder="e.g. M. Hamza Farooq" required autocomplete="name" />
+              </div>
+
+              <!-- Phone Number -->
+              <div class="form-group">
+                <label class="form-label" for="cust-phone">Phone Number (For Courier Call & SMS) *</label>
+                <input type="tel" id="cust-phone" class="form-input" placeholder="0370 8111223" required autocomplete="tel" />
+                <span class="form-help-text">
+                  The courier will dial this number for delivery coordinates prior to arrival.
+                </span>
+              </div>
+
+              <!-- City Selection -->
+              <div class="form-group">
+                <label class="form-label" for="cust-city">City *</label>
+                <select id="cust-city" class="form-select" required>
+                  <option value="" disabled selected>Select your delivery city in Pakistan</option>
+                  <option value="Mirpur (Azad Kashmir)">Mirpur (Azad Kashmir)</option>
+                  <option value="Lahore">Lahore</option>
+                  <option value="Karachi">Karachi</option>
+                  <option value="Islamabad">Islamabad</option>
+                  <option value="Rawalpindi">Rawalpindi</option>
+                  <option value="Faisalabad">Faisalabad</option>
+                  <option value="Multan">Multan</option>
+                  <option value="Peshawar">Peshawar</option>
+                  <option value="Sialkot">Sialkot</option>
+                  <option value="Gujranwala">Gujranwala</option>
+                  <option value="Quetta">Quetta</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Bahawalpur">Bahawalpur</option>
+                  <option value="Sargodha">Sargodha</option>
+                  <option value="Abbottabad">Abbottabad</option>
+                  <option value="Other City (Pakistan)">Other City (Pakistan)</option>
+                </select>
+              </div>
+
+              <!-- Complete Street Address -->
+              <div class="form-group">
+                <label class="form-label" for="cust-address">Complete Street Address *</label>
+                <textarea id="cust-address" class="form-textarea" rows="3" placeholder="House / Apartment #, Street #, Sector / Phase, Landmark, Area..." required autocomplete="street-address"></textarea>
+              </div>
+
+              <!-- Additional Notes -->
+              <div class="form-group">
+                <label class="form-label" for="cust-notes">Additional Notes / Delivery Instructions (Optional)</label>
+                <input type="text" id="cust-notes" class="form-input" placeholder="e.g. Call before delivery, gift wrap, leave with security..." />
+              </div>
+
+              <!-- Payment Method Selection -->
+              <div class="payment-method-section">
+                <div class="payment-section-header">
+                  <span class="section-label">Payment Method</span>
+                  <h3 class="payment-method-title">Choose How You Wish to Pay</h3>
+                </div>
+
+                <div class="payment-options-grid">
+                  <!-- Option 1: Advance Cash (10% Extra Discount) -->
+                  <label class="payment-option-card active" for="pay-method-advance" id="card-pay-advance">
+                    <input type="radio" name="checkout_payment_mode" id="pay-method-advance" value="advance" checked />
+                    <div class="payment-option-content">
+                      <div class="payment-option-top">
+                        <span class="payment-option-name">Advance Cash (JazzCash / Easypaisa)</span>
+                        <span class="discount-pill">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                          SAVE 10% INSTANT
+                        </span>
+                      </div>
+                      <p class="payment-option-desc">
+                        Pay advance via JazzCash or Easypaisa & enjoy flat <strong>10% EXTRA DISCOUNT</strong> on your total order bill.
+                      </p>
+                      <div class="payment-badges-row">
+                        <span class="pay-badge jazzcash-badge">JazzCash</span>
+                        <span class="pay-badge easypaisa-badge">Easypaisa</span>
+                        <span class="pay-badge savings-badge">Flat 10% OFF Bill</span>
+                      </div>
+                    </div>
+                  </label>
+
+                  <!-- Option 2: Cash on Delivery (COD) -->
+                  <label class="payment-option-card" for="pay-method-cod" id="card-pay-cod">
+                    <input type="radio" name="checkout_payment_mode" id="pay-method-cod" value="cod" />
+                    <div class="payment-option-content">
+                      <div class="payment-option-top">
+                        <span class="payment-option-name">Cash on Delivery (COD)</span>
+                        <span class="standard-pill">Regular Price</span>
+                      </div>
+                      <p class="payment-option-desc">
+                        Pay cash directly to the TCS / Call Courier delivery rider when the parcel arrives at your doorstep.
+                      </p>
+                    </div>
+                  </label>
+                </div>
+
+                <!-- Advance Payment Interactive Panel -->
+                <div id="advance-payment-details-panel" class="advance-payment-panel">
+                  <div class="advance-discount-banner">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    <div>
+                      <strong>10% Advance Cash Discount Activated!</strong>
+                      <div>You save <strong id="advance-discount-badge-amount" style="color: #047857;">PKR 0</strong> with instant advance payment.</div>
+                    </div>
+                  </div>
+
+                  <!-- JazzCash / Easypaisa Wallet Switcher -->
+                  <div class="advance-wallet-tabs">
+                    <button type="button" class="wallet-tab-btn active jazzcash-active" id="tab-btn-jazzcash" onclick="switchAdvanceWallet('jazzcash')">
+                      <span class="wallet-dot jc-dot"></span>
+                      <span>JazzCash</span>
+                    </button>
+                    <button type="button" class="wallet-tab-btn" id="tab-btn-easypaisa" onclick="switchAdvanceWallet('easypaisa')">
+                      <span class="wallet-dot ep-dot"></span>
+                      <span>Easypaisa</span>
+                    </button>
+                  </div>
+
+                  <!-- Wallet Information Display Box -->
+                  <div class="wallet-info-box" id="wallet-info-box">
+                    <div class="wallet-info-grid">
+                      <div class="wallet-info-item">
+                        <span class="wallet-info-label" id="wallet-name-label">Selected Account</span>
+                        <span class="wallet-info-value" id="wallet-name-val">JazzCash Mobile Account</span>
+                      </div>
+                      <div class="wallet-info-item">
+                        <span class="wallet-info-label">Account Title</span>
+                        <span class="wallet-info-value" id="wallet-title-val">ST Watches / Asad Kabir</span>
+                      </div>
+                      <div class="wallet-info-item">
+                        <span class="wallet-info-label">Account Mobile Number</span>
+                        <span class="wallet-info-value" id="wallet-number-val" style="font-family: monospace; font-size: 1.05rem; letter-spacing: 0.05em; color: #0B0B0B;">0370 8111223</span>
+                      </div>
+                      <div class="wallet-info-item">
+                        <span class="wallet-info-label">Discounted Amount Payable (10% OFF)</span>
+                        <span class="wallet-info-value amount" id="wallet-amount-val">PKR 0</span>
+                      </div>
+                    </div>
+                    <div class="wallet-instructions-text" id="wallet-instructions-val">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                      <span>Open your JazzCash App > Send Money > Enter 03708111223 > Transfer the discounted total.</span>
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons: Open App & Copy Number -->
+                  <div class="wallet-action-buttons">
+                    <button type="button" class="btn-wallet-launch jc-theme" id="btn-launch-jazzcash" onclick="launchWalletApp('jazzcash')">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                      <span>Open JazzCash App</span>
+                    </button>
+                    <button type="button" class="btn-wallet-launch ep-theme" id="btn-launch-easypaisa" onclick="launchWalletApp('easypaisa')">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                      <span>Open Easypaisa App</span>
+                    </button>
+                  </div>
+                  <div style="margin-bottom: 1.25rem;">
+                    <button type="button" class="btn-wallet-copy" style="width: 100%;" id="btn-copy-wallet-num" onclick="copyWalletAccountNumber()">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                      <span id="copy-btn-text">Copy Account Number (0370 8111223)</span>
+                    </button>
+                  </div>
+
+                  <!-- Optional Transaction ID / Sender Mobile Input -->
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label" for="advance-tid">
+                      Transaction ID (TID) / Sender Number (Optional)
+                    </label>
+                    <input type="text" id="advance-tid" class="form-input" placeholder="e.g. TID 9876543210 or 0300-XXXXXXX" />
+                    <span class="form-help-text">
+                      Payment transfer karne ke baad Transaction ID yahan enter karein, ya order ke baad WhatsApp par screenshot send karein.
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Order Summary & Checkout Actions Column -->
+          <div class="checkout-summary-card">
+            <h3 class="checkout-summary-title">
+              <span>Order Summary</span>
+              <span id="summary-badge-mode" style="font-size: 0.8rem; font-family: var(--font-sans); color: #15803D; font-weight: 600;">10% Discount Active</span>
+            </h3>
+
+            <!-- Itemized products in cart -->
+            <div id="checkout-items-list" style="max-height: 260px; overflow-y: auto; margin-bottom: 1.25rem; padding-right: 0.25rem;">
+              <!-- Populated via checkout.js -->
+            </div>
+
+            <!-- Calculation rows -->
+            <div class="summary-calc-row">
+              <span>Subtotal</span>
+              <strong id="checkout-subtotal" style="color: var(--color-black); font-variant-numeric: tabular-nums;">PKR 0</strong>
+            </div>
+
+            <div class="summary-calc-row discount-row" id="checkout-discount-row" style="display: none; color: #15803D;">
+              <span>Advance Discount (10% OFF)</span>
+              <strong id="checkout-discount" style="color: #15803D; font-variant-numeric: tabular-nums;">- PKR 0</strong>
+            </div>
+
+            <div class="summary-calc-row">
+              <span>Delivery Charges</span>
+              <strong id="checkout-delivery" style="color: var(--color-black); font-variant-numeric: tabular-nums;">PKR 250</strong>
+            </div>
+
+            <div class="summary-calc-row total">
+              <span>Grand Total</span>
+              <span id="checkout-total" style="color: var(--color-gold-dark); font-variant-numeric: tabular-nums;">PKR 0</span>
+            </div>
+
+            <div class="checkout-actions-container">
+              <!-- PRIMARY: Place Order on WhatsApp Button -->
+              <button id="btn-place-whatsapp-order" class="btn btn-whatsapp btn-checkout-whatsapp btn-block" type="button">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.8 14.16c-.24.68-1.4 1.25-1.92 1.33-.5.08-1.15.11-3.72-.94-3.28-1.34-5.4-4.66-5.56-4.88-.16-.22-1.33-1.77-1.33-3.38 0-1.61.84-2.4 1.14-2.73.3-.33.65-.41.87-.41.22 0 .43 0 .62.01.2.01.47-.08.73.55.27.65.92 2.24 1 2.4.08.16.14.36.03.57-.11.22-.16.36-.32.55-.16.19-.34.42-.49.57-.16.16-.33.34-.14.67.19.33.84 1.39 1.8 2.25 1.24 1.1 2.28 1.45 2.61 1.61.33.16.52.14.71-.08.2-.22.84-.98 1.06-1.32.22-.34.45-.28.75-.17.3.11 1.91.9 2.24 1.06.33.16.55.24.63.38.08.14.08.82-.16 1.5z"/></svg>
+                <span>PLACE ORDER ON WHATSAPP</span>
+              </button>
+
+              <!-- SECONDARY: Instant COD Confirmation -->
+              <button id="btn-place-cod-order" class="btn btn-dark btn-checkout-cod btn-block" type="button">
+                Place Cash on Delivery (COD) Order
+              </button>
+            </div>
+
+            <div class="checkout-trust-strip">
+              <div class="checkout-trust-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>100% Risk-Free Cash on Delivery Across Pakistan</span>
+              </div>
+              <div class="checkout-trust-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                <span>Fast 2-4 Days TCS / Call Courier Doorstep Dispatch</span>
+              </div>
+              <div class="checkout-trust-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span>Open & Inspect Package Before Courier Payment</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Footer Newsletter Bar -->
+      <div class="footer-newsletter-bar">
+        <div class="footer-newsletter-info">
+          <span class="footer-newsletter-tag">VIP Collector's Circle</span>
+          <h3 class="footer-newsletter-title">Subscribe to Horological Journal</h3>
+          <p class="footer-newsletter-desc">
+            Receive private preview access to limited batch releases and exclusive private sale invitations in Pakistan.
+          </p>
+        </div>
+        <form class="newsletter-form footer-newsletter-form" action="https://formsubmit.co/asadkabir722@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="📬 New VIP Watch Collector Subscriber - ST Watches Pakistan" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_autoresponse" value="Thank you for subscribing to ST Watches Pakistan. You have been added to our VIP Collector's Circle and will receive priority notices for new arrivals and private sales." />
+          <input type="hidden" name="Subscription" value="VIP Collector Circle" />
+          <input type="hidden" name="Store" value="ST Watches Pakistan" />
+          <div class="footer-newsletter-inputs">
+            <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address..." required autocomplete="email" />
+            <button type="submit" class="btn btn-gold footer-subscribe-btn">
+              <span>Subscribe</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="site-logo">ST <span>WATCHES</span></a>
+          <p>Pakistan's bespoke horological institution. Creating modern, precision-engineered luxury timepieces.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop All Timepieces</a></li>
+            <li><a href="categories.html">Watch Categories</a></li>
+            <li><a href="new-arrivals.html">New Arrivals</a></li>
+            <li><a href="sale.html">Special Offers & Sale</a></li>
+            <li><a href="about.html">Brand Philosophy</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html?category=Men%27s%20Watches">Men's Watches</a></li>
+            <li><a href="shop.html?category=Women%27s%20Watches">Women's Watches</a></li>
+            <li><a href="shop.html?category=Luxury%20Watches">Luxury Watches</a></li>
+            <li><a href="shop.html?category=Classic%20Watches">Classic Watches</a></li>
+            <li><a href="shop.html?category=Casual%20Watches">Casual & Sports</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Store Inquiries</h4>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+92 370 8111223<br><small style="color: #C9A227;">WhatsApp Orders 24/7</small></span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>asadkabir722@gmail.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 ST WATCHES PAKISTAN. ALL RIGHTS RESERVED. · <a href="privacy-policy.html" style="color: #A0A5B5; text-decoration: underline;">Privacy Policy</a></div>
+        <div class="footer-payments">
+          <span class="cod-badge">CASH ON DELIVERY (COD)</span>
+          <span class="cod-badge">WHATSAPP DIRECT</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/923708111223" target="_blank" rel="noopener" class="whatsapp-floating" aria-label="Direct WhatsApp Order Support">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.8 14.16c-.24.68-1.4 1.25-1.92 1.33-.5.08-1.15.11-3.72-.94-3.28-1.34-5.4-4.66-5.56-4.88-.16-.22-1.33-1.77-1.33-3.38 0-1.61.84-2.4 1.14-2.73.3-.33.65-.41.87-.41.22 0 .43 0 .62.01.2.01.47-.08.73.55.27.65.92 2.24 1 2.4.08.16.14.36.03.57-.11.22-.16.36-.32.55-.16.19-.34.42-.49.57-.16.16-.33.34-.14.67.19.33.84 1.39 1.8 2.25 1.24 1.1 2.28 1.45 2.61 1.61.33.16.52.14.71-.08.2-.22.84-.98 1.06-1.32.22-.34.45-.28.75-.17.3.11 1.91.9 2.24 1.06.33.16.55.24.63.38.08.14.08.82-.16 1.5z"/></svg>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

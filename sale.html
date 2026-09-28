@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Special Offers & Sale | ST Watches Pakistan</title>
+  <meta name="description" content="Save up to 25% on authentic ST Watches timepieces. Limited inventory available with Cash on Delivery across Pakistan." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar">
+    <span>Special Promotion: Use coupon code <strong>ST10</strong> at cart for an extra 10% discount!</span>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="site-logo">ST <span>WATCHES</span></a>
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="categories.html" class="nav-link">Categories</a>
+        <a href="new-arrivals.html" class="nav-link">New Arrivals</a>
+        <a href="sale.html" class="nav-link active nav-sale-badge">Sale</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="action-btn" onclick="openSearchModal()" aria-label="Search watches">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <a href="cart.html" class="action-btn" aria-label="Shopping Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span class="cart-count-badge" style="display: none;">0</span>
+        </a>
+        <button class="action-btn mobile-menu-btn" aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <span class="site-logo" style="font-size: 1.2rem;">ST <span>WATCHES</span></span>
+      <button class="mobile-menu-close" style="color: #FFFFFF; padding: 0.5rem;" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="mobile-links">
+      <a href="index.html" class="mobile-link">Home <span>→</span></a>
+      <a href="shop.html" class="mobile-link">Shop Collection <span>→</span></a>
+      <a href="categories.html" class="mobile-link">Categories <span>→</span></a>
+      <a href="new-arrivals.html" class="mobile-link">New Arrivals <span>→</span></a>
+      <a href="sale.html" class="mobile-link active" style="color: #E2C45E;">Sale Offers <span>→</span></a>
+      <a href="about.html" class="mobile-link">About Brand <span>→</span></a>
+      <a href="contact.html" class="mobile-link">Contact & Showroom <span>→</span></a>
+    </div>
+    <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+      <a href="https://wa.me/923001234567" target="_blank" class="btn btn-whatsapp btn-sm btn-block">
+        WhatsApp: +92 300 1234567
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="page-banner" style="background: linear-gradient(rgba(11, 11, 11, 0.95), rgba(11, 11, 11, 0.95)), #171717;">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="separator">/</span>
+          <span class="current">Special Offers & Sale</span>
+        </nav>
+        <span class="section-label" style="color: #F87171;">Seasonal Markdowns</span>
+        <h1 class="page-banner-title">Limited Horological Offers</h1>
+        <p class="page-banner-subtitle">
+          Acquire select ST Watches silhouettes at privileged prices. Includes luxury presentation box, warranty, and Cash on Delivery.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-label">Marked Down Silhouettes</span>
+            <h2 class="section-title">Timepieces On Sale</h2>
+            <p class="section-desc">
+              Hurry—sale inventory is strictly allocated per city hub. Prices revert once allocation is exhausted.
+            </p>
+          </div>
+          <a href="shop.html" class="btn btn-outline-dark">View Entire Range</a>
+        </div>
+
+        <div id="sale-products-grid" class="product-grid">
+          <!-- Populated via JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Footer Newsletter Bar -->
+      <div class="footer-newsletter-bar">
+        <div class="footer-newsletter-info">
+          <span class="footer-newsletter-tag">VIP Collector's Circle</span>
+          <h3 class="footer-newsletter-title">Subscribe to Horological Journal</h3>
+          <p class="footer-newsletter-desc">
+            Receive private preview access to limited batch releases and exclusive private sale invitations in Pakistan.
+          </p>
+        </div>
+        <form class="newsletter-form footer-newsletter-form" action="https://formsubmit.co/haidershafiq03@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="📬 New VIP Watch Collector Subscriber - ST Watches Pakistan" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_autoresponse" value="Thank you for subscribing to ST Watches Pakistan. You have been added to our VIP Collector's Circle and will receive priority notices for new arrivals and private sales." />
+          <input type="hidden" name="Subscription" value="VIP Collector Circle" />
+          <input type="hidden" name="Store" value="ST Watches Pakistan" />
+          <div class="footer-newsletter-inputs">
+            <input type="email" name="email" class="newsletter-input" placeholder="Enter your email address..." required autocomplete="email" />
+            <button type="submit" class="btn btn-gold footer-subscribe-btn">
+              <span>Subscribe</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="site-logo">ST <span>WATCHES</span></a>
+          <p>
+            Pakistan's bespoke horological institution. Creating modern, precision-engineered luxury timepieces that make a lasting statement.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop All Timepieces</a></li>
+            <li><a href="categories.html">Watch Categories</a></li>
+            <li><a href="new-arrivals.html">New Arrivals</a></li>
+            <li><a href="sale.html">Special Offers & Sale</a></li>
+            <li><a href="about.html">Brand Philosophy</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html?category=Men%27s%20Watches">Men's Watches</a></li>
+            <li><a href="shop.html?category=Women%27s%20Watches">Women's Watches</a></li>
+            <li><a href="shop.html?category=Luxury%20Watches">Luxury Watches</a></li>
+            <li><a href="shop.html?category=Classic%20Watches">Classic Watches</a></li>
+            <li><a href="shop.html?category=Casual%20Watches">Casual & Sports</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Store Inquiries</h4>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>+92 300 1234567<br><small style="color: #C9A227;">WhatsApp Orders 24/7</small></span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>orders@stwatches.pk</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 ST WATCHES PAKISTAN. ALL RIGHTS RESERVED. · <a href="privacy-policy.html" style="color: #A0A5B5; text-decoration: underline;">Privacy Policy</a></div>
+        <div class="footer-payments">
+          <span class="cod-badge">CASH ON DELIVERY (COD)</span>
+          <span class="cod-badge">WHATSAPP DIRECT</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/923001234567" target="_blank" rel="noopener" class="whatsapp-floating" aria-label="Direct WhatsApp Order Support">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.8 14.16c-.24.68-1.4 1.25-1.92 1.33-.5.08-1.15.11-3.72-.94-3.28-1.34-5.4-4.66-5.56-4.88-.16-.22-1.33-1.77-1.33-3.38 0-1.61.84-2.4 1.14-2.73.3-.33.65-.41.87-.41.22 0 .43 0 .62.01.2.01.47-.08.73.55.27.65.92 2.24 1 2.4.08.16.14.36.03.57-.11.22-.16.36-.32.55-.16.19-.34.42-.49.57-.16.16-.33.34-.14.67.19.33.84 1.39 1.8 2.25 1.24 1.1 2.28 1.45 2.61 1.61.33.16.52.14.71-.08.2-.22.84-.98 1.06-1.32.22-.34.45-.28.75-.17.3.11 1.91.9 2.24 1.06.33.16.55.24.63.38.08.14.08.82-.16 1.5z"/></svg>
+  </a>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('sale-products-grid');
+      if (grid && typeof getAllProducts === 'function') {
+        const products = getAllProducts();
+        const saleProducts = products.filter(p => p.isSale && p.oldPrice);
+        grid.innerHTML = saleProducts.map(p => renderProductCard(p)).join('');
+        window.dispatchEvent(new CustomEvent('st:productsRendered'));
+      }
+    });
+  </script>
+</body>
+</html>
